@@ -17,7 +17,9 @@ Younger people and adults who are interested in surfing as a lifestyle or as a p
 ------------------------------------------------------
 
 PROJECT'S WEBSITE: (soon!)
+
 ORIGINAL PROJECT REPO: https://github.com/NatsRoit/Grupo_3_Papa-Hoe
+
 TEAM SCRUM DASHBOARD: https://app.clickup.com/31083892/v/l/xmkbm-143
 
 ------------------------------------------------------
