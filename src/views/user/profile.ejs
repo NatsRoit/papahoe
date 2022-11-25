@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include("../partials/head", {title: 'PapaHoe || Tu perfil'}) %>
+
+    <body>
+        <%- include("../partials/header") %>
+
+            <header class="section-header">
+                <img id="carrousel-image-1" src="/images/stock/guille-unsplash.jpg" alt="PapaHoe foto1">
+            </header>
+
+            <main class="profile">
+                <h2>Área Personal</h2>
+
+                <section class="main-container">
+
+                    <div class="wrapper-Col-66">
+                        <h2>Historial de compras</h2>
+                        <div class="history-items">
+                <!-- Acá tendremos que cambiar por valores dinámicos -->
+                            <div class="img-slider">
+                                <img src="/img/<%= productos[0].image1%>" alt="">
+                            </div>
+                            
+                            <div class="prod-info-list">
+                                <p><strong><%= productos[0].name%></strong> <br>
+                                $ <%= productos[0].price%> ARS <br>
+                                YYY / MM / DD</p>
+                                <div class="edit-buttons">
+                                    <a class="button-link azul-marino" href="/product/all">view</a>
+                                    <a class="button-link rosa" href="/tracker">track</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="wrapper-Col-33">
+                        <h2>Mi perfil</h2>
+
+                        <div class="img-slider">
+                            <img src="/images/usuarios/<%= user.avatar %>" alt="imagen de perfil">
+                        </div>
+
+                        <div>
+                            <p> <strong><%= user.first_name%> <%= user.last_name%></strong> <br>
+                            <!-- <p><strong>E-mail</strong>: <%= user.email%></p> -->
+                            <!-- <p><strong>Teléfono</strong>: <%= user.telefono%></p> -->
+                            <%= user.address + ', ' +  user.floor_apt %>
+                            <br>
+                            <%= user.city + " \(" + user.zip_code + "\)" %>
+                            <br>
+                            <%= user.province + ', ' +  (user.country).toUpperCase() %>
+                            </p>
+                            <div>
+                                <a class="button-link azul-marino" href="/user/edit/<%= user.id%>">editar</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+
+            </main>
+            <%- include("../partials/footer") %>
+    </body>
+
+</html>

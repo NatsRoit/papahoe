@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-------------------------HEAD-------------------------->
+    <%- include("../partials/head", {title: 'PapaHoe || Contact Us'}) %>
+
+    <body>
+        <!-----------------------HEADER-------------------------->
+        <%- include("../partials/header") %>
+            
+            <!-------------------------MAIN------------------------------->
+            <main class="profile">       
+                <div class="login-img">
+                    <img src="/images/brand/PapaHoe-ELEMENTS-Lalinea.png" alt="LaLinea">
+                </div>
+                <h2>Contact US</h2>
+                <div class="main-container">
+
+
+
+                    <div class="wrapper-Col-66">
+                        <h2>Dejános un mensaje</h2>
+
+                        <form class="contact-form" action="/contact" method="POST">
+                            <div class="form-input">
+                                <label for="email">Email 
+                                    <% if(typeof errors != 'undefined' && errors.email){ %>
+                                        <span class="under"><%= errors.email.msg %> </span>
+                                    <% } %>
+                                </label>
+                                <input type="email" name="email" id="email" placeholder="Email" value="<%= locals.errors && old.email ? old.email : ""  %>">
+                            </div>
+
+                            <div class="form-input">
+                                <label for="nombre">Nombre  
+                                    <% if(typeof errors != 'undefined' && errors.nombre){ %>
+                                        <span class="under"><%= errors.nombre.msg %> </span>
+                                    <% } %>
+                                </label>
+                                <input type="text" name="nombre" id="nombre" placeholder="Nombre" value="<%= locals.errors && old.nombre ? old.nombre : ""  %>">
+                            </div>
+                            
+                            <div class="form-input">
+                                <label for="nombre">Mensaje   
+                                    <% if(typeof errors != 'undefined' && errors.mensaje){ %>
+                                        <span class="under"><%= errors.mensaje.msg %> </span>
+                                    <% } %>
+                                </label>
+                                <textarea name="mensaje" id="mensaje" placeholder="Dejanos tu mensaje" value="<%= locals.errors && old.mensaje ? old.mensaje : ""  %>"></textarea>
+                            </div>
+
+                            <p class="form-rta hidden"><strong>Gracias! </strong> Te responderemos a la brevedad!!!</p>
+
+                            <div class="submit-button">
+                                <button class="submit-button" type="submit">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="wrapper-Col-33">
+                        <div class="colum">                           
+                            <h2>Contacto</h2>
+                            <li><a href="mailto:info@papahoe.com"  target="_self">info@papahoe.com</a></li>
+                            <li>ARG +54 11 4395 859<br>MEX +52 00 4395 859</li> <br>
+                            <li>
+                                <h4>Surfboard Factory</h4>
+                                <p>Calle Cualca 27 <br> Villa Gesell, Argentina</p>
+                            </li> <br>
+                            <li>
+                                <h4>DF Showroom</h4>
+                                <p>San Tlatelolco 123 <br> Colonia Roma, DF</p>
+                            </li>
+                        </div>
+                    </div>
+
+                    <div class="mapouter">
+                        <div class="gmap_canvas">
+                            <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=Papa%20Hoe%20Villa%20Gesell&t=&z=11&ie=UTF8&iwloc=Villa%20Gesell&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                            <br>
+                            <a href="https://www.embedgooglemap.net"></a>
+                            <style>.gmap_canvas {overflow:hidden;background:none!important}</style>
+                            <style>iframe {width:100%;height:600px;}</style>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        <!-------------------------FOOTER------------------------------->
+        <%- include("../partials/footer") %>
+        
+        <!-------------------------SCRIPTS------------------------------->
+        <!-- <script src="/js/contactFormValidation.js"></script> -->
+    </body>
+</html>

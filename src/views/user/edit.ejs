@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include("../partials/head", {title: 'PapaHoe || Edita tu perfil'}) %>
+
+    <body>
+        <%- include("../partials/header") %>
+        <header class="section-header">
+            <img id="carrousel-image-1" src="/images/stock/guille-unsplash.jpg" alt="PapaHoe foto1">
+        </header>
+
+        <main class="profileEdit">
+            <h2>Mi perfil</h2>
+
+            <section class="main-container column ">
+
+                <div class="wrapper-Col-66">
+                    <h2>Editar Perfil</h2>
+                    <div class="register">
+                        <ul class="errores"></ul>
+                        <form class="formulario" action="/user/edit/<%= user.id%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                            <section class="datos-section">
+                                <h4>Datos Personales</h4>
+                                <div class="form-2col">
+                                    <div class="form-input">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" name="nombre" id="nombre" placeholder="Nombre"
+                                            value="<%=user.first_name%>" required>
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="apellido">Apellido</label>
+                                        <input type="text" name="apellido" id="apellido" placeholder="Apellido"
+                                            value="<%=user.last_name%>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-input">
+                                    <label for="usuario">Usuario</label>
+                                    <input type="text" name="usuario" id="usuario" placeholder="Nombre de usuario"
+                                        value="<%=user.user_name%>" required>
+                                </div>
+                                <div class="form-input">
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email" id="email" placeholder="Email"
+                                        value="<%=user.email%>" required>
+                                </div>
+
+                                <!-- aca iba el password -->
+
+                            </section>
+                          
+                            <section class="datos-section">
+                                <h4>Datos de Envío</h4>
+                                <div class="form-2col" >
+                                    
+                                    <div class="form-input">
+                                        <label for="province">Provincia</label>
+                                        <input type="text" name="province" id="province" placeholder="Provincia"
+                                            value="<%=user.province%>" required>
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="country">País</label>
+                                        <input type="text" name="country" id="country" placeholder="País"
+                                            value="<%=user.country%>" required>
+                                    </div>
+                                    </div>
+                                <div class="form-input">
+                                    <label for="direccion">Dirección</label>
+                                    <input type="text" name="direccion" id="direccion" placeholder="Dirección"
+                                        value="<%=user.address%>" required>
+                                </div>
+                                <div class="form-3col">
+                                    <div class="form-input">
+                                        <label for="departamento">Piso, departamento</label>
+                                        <input type="text" name="departamento" id="departamento"
+                                            placeholder="Piso, departamento" value="<%=user.floor_apt%>">
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="ciudad">Localidad / Ciudad</label>
+                                        <input type="text" name="localidad" id="localidad" placeholder="Localidad / Ciudad"
+                                            value="<%=user.city%>" required>
+                                    </div>
+                                    <div class="form-input">
+                                        <label for="codigoPostal">Código Postal</label>
+                                        <input type="text" name="codigoPostal" id="codigoPostal"
+                                            placeholder="Código Postal" value="<%=user.zip_code%>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-input">
+                                    <label for="telefono">Teléfono</label>
+                                    <input type="text" name="telefono" id="telefono" placeholder="Teléfono"
+                                        value="<%=user.phone_number%>" required>
+                                </div>
+                            </section>
+                            <br>
+
+                            <!--Aquí solicito la imagen-->
+                            <div class="custom-file">
+                                <figure class="form-input">
+                                    <img src="/images/usuarios/<%= user.avatar%>" alt="">
+                                </figure>
+                                <input type="hidden" name="oldImagen" value="<%= user.avatar%>">
+                                <!--De esta forma logro conservar y que viaje la imagen anterior de esta forma evito que el usuario seleccione una imagen nuevamente, ( si no lo desea) -->
+                                <span class="errMsg" id="errMsg"></span>
+                                <input type="file" name="avatar" id="avatar">
+                                <label for="avatar">Elige una imagen de perfil</label>
+                            </div>
+
+                            <div class="submit-button">
+                                <button class="submit-button" type="submit">Confirmar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="wrapper-Col-33">
+                    <h2>Editar Avatar</h2>
+                    <div class="img-slider">
+                        <img src="/images/usuarios/<%= user.avatar %>" alt="imagen de perfil">
+                    </div>
+                    Acá podemos poner botones para cambiar la imagen independientemente del resto del formulario
+                    <br>(y sacarlo de abajo!)
+                </div>
+
+                </section>                        
+                    
+            </main>
+            <%- include("../partials/footer") %>
+            <script src="/js/editValidation.js"></script>
+             <!-- sweet alert -->
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+
+</html>

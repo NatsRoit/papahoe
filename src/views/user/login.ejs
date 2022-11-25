@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include("../partials/head", {title: 'PapaHoe || Login'}) %>
+
+    <body>
+        <%- include("../partials/header") %>
+
+            <main>
+                <div class="login-register">
+                    <h2>Login</h2>
+                    <div class="login-img">
+                        <img src="/images/brand/PapaHoe-ELEMENTS-Lalinea.png" alt="LaLinea">
+                    </div>
+
+                    <% if (typeof errors != 'undefined') { %>
+                        <div class="auth-error-message">
+                            <p>Oops! Controlá tus datos</p>
+                        </div>
+                    <% } else { %>
+                        <div class="auth-error-message hidden">
+                            <p>Oops! Controlá tus datos</p>
+                        </div>
+                    <% } %>
+
+                    <form id="formulario" action="/user/login" method="POST">
+
+                        <div class="form-input">
+                            <label class="form-label" for="email">Email</label>
+                            <% if (typeof errors != 'undefined' && errors.email) { %>
+                            <span class="under"><%= errors.email.msg %> </span>
+                            <% } else { %>
+                            <span class="errMsg" id="errMsg"></span>
+                            <% } %>
+                            <input type="email" name="email" id="email" placeholder="Email">
+                        </div>
+
+                        <div class="form-input" id="form-password">
+                            <label class="form-label" for="password">Contraseña</label>
+                            <% if (typeof errors != 'undefined' && errors.password) { %>
+                            <span class="under"><%= errors.password.msg %> </span>
+                            <span class="errMsg" id="errMsg"> </span>
+                            <% } else { %>
+                            <span class="errMsg" id="errMsg"> </span>
+                            <% } %>
+                            <a href="#" tabindex="-1"> ¿Olvidaste tu contraseña?</a>
+
+                            <div class="pwd">
+                                <input type="password" name="password" id="password" placeholder="Contraseña" autocomplete="off">
+                                <span id="pass-eye" class="hidden"> <i class="fa-solid fa-eye" aria-hidden="true"></i> </span>
+                            </div>
+
+                        </div>
+
+                        <label class="container">Keep me signed in
+                            <input type="checkbox" name="keepSession" id="keepSession" value="keepSession">
+                            <span class="checkmark"></span>
+                        </label>
+
+                        <!-- <div>
+                            <input type="checkbox" name="keepSession" id="keepSession" value="keepSession" >
+                            <label for="keepSession"> Keep me signed in</label>
+                        </div> -->
+
+                        <div class="submit-button">
+                            <button class="submit-button" type="submit">Ingresar</button>
+                        </div>
+                    </form>
+
+                    <div class="login-redirect">
+                        <p><a href="/user/register">Crear cuenta</a></p>
+                    </div>
+                </div>
+            </main>
+
+        <!-- footer -->
+        <%- include("../partials/footer") %>
+        <!-- /footer -->
+
+        <script src="/js/userLoginValidation.js"></script>
+    </body>
+
+</html>

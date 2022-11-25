@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("../partials/head", {title: 'PapaHoe || Board Builder'}) %>
+
+<body>
+    <main>
+        <div class="col1">
+            <span id="close">
+                <button class="drawer__close"></button>
+            </span>
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="tab-block">
+                        <h1 class="titulo-seccion-main accesorios">Medidas Standard</h1>
+                        <div class="tab-content" id="tab-stock-dims">
+                            <div class="tab-pane">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Largo</strong></td>
+                                            <td><strong>Ancho</strong></td>
+                                            <td><strong>Espesor</strong></td>
+                                            <td><b>Volumen</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5’8</td>
+                                            <td>18 1/4</td>
+                                            <td>2 3/16</td>
+                                            <td>24.3L</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5’9</td>
+                                            <td>18 3/8</td>
+                                            <td>2 1/4</td>
+                                            <td>25.5L</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5’10</td>
+                                            <td>18 5/8</td>
+                                            <td>2 5/16</td>
+                                            <td>26.9L</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5’11</td>
+                                            <td>18 7/8</td>
+                                            <td>2 3/8</td>
+                                            <td>28.4L</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6’0</td>
+                                            <td>19 1/8</td>
+                                            <td>2 7/16</td>
+                                            <td>29.9L</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6’1</td>
+                                            <td>19 1/4</td>
+                                            <td>2 1/2</td>
+                                            <td>31.2L</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6’2</td>
+                                            <td>19 1/2</td>
+                                            <td>2 9/16</td>
+                                            <td>32.8L</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6’3</td>
+                                            <td>19 7/8</td>
+                                            <td>2 5/8</td>
+                                            <td>34.7L</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6’4</td>
+                                            <td>20 1/8</td>
+                                            <td>2 3/4</td>
+                                            <td>37.3L</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6’6</td>
+                                            <td>20 1/2</td>
+                                            <td>2 7/8</td>
+                                            <td>40.6L</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<style>
+.col1 {
+    background-color: #0f0f0fea;
+}   
+.modal-content {
+    border: medium none;
+    border-radius: 0;
+    box-shadow: none;
+    color: #fff;
+    text-align: center;
+    padding: 0 60px 30px 60px;
+}
+.modal-content h1 {
+    color: #fff;
+    margin: auto;
+    margin-bottom: 30px;
+    font-family: "Bebas Neue", cursive;
+    letter-spacing: .5pt;
+    width: 70%;
+    padding-bottom: 15px;
+    border-bottom: 1px solid white;
+}
+.modal-body {
+    color: #fff;
+    position: relative;
+    padding: 0;
+}
+.tab-block {
+  color: #fff;
+}
+.modal-body .tab-content {
+    padding: 24px 0;
+}
+.tab-content > .tab-pane {
+    position: static;
+    margin-bottom: 30px;
+}
+.modal-body #tab-stock-dims table {
+    margin: auto;
+    width: 70%;
+    border: 1px solid #fff;
+    border-right: 0;
+    border-bottom: 0;
+}
+table {
+    max-width: 100%;
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.modal-body #tab-stock-dims table td {
+    height: 41px;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    /* color: #fff; */
+    background-color: transparent;
+    font-weight: 100;
+}
+button.close {
+    padding-right: 20px;
+    padding-top: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#close {
+    text-align: right;
+    display: flex;
+    justify-content: end;
+    padding: 10px;
+/* 
+    background-color: unset;
+    justify-content: right;
+    text-align: right; */
+}
+</style>
+
+</body>
+</html>
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/head", {title: 'PapaHoe || Panel de Control Admin'}) %>
+
+    <body>
+        <%- include("../partials/header") %>
+            <header class="section-header">
+                <img id="carrousel-image-1" src="/images/stock/guille-unsplash.jpg" alt="PapaHoe foto1">
+            </header>
+
+            <main class="productCreate">
+                <span class="adm-table-header">
+                    <h2 id="panelProd">Panel de Control</h2>
+                    <a href="/admin/create">+ Nuevo Producto</a>
+                </span>
+
+                <section class="main-container">
+                    <div class="wrapper-Col-99">
+                        <h1>Todos los productos</h1>
+                        <section>
+                            <table class="adm-table header">
+                                <thead class="adm-table-title head">
+                                <tr>  
+                                    <th scope="col" title="Nombre del Producto" class="hidden">id</th>
+                                    <th scope="col" title="Nombre del Producto">Producto</th>
+                                    <th scope="col" title="Nombre del Producto">Categoría</th>
+                                    <th scope="col" title="Cantidad de productos en stock">Stock</th>
+                                    <th scope="col" title="Precio Unitario">Precio</th>
+                                    <th scope="col" title="Aplica Descuento">%</th>
+                                    <th scope="col" title="Activo">.</th>
+                                    <th scope="col" title="Ver detalle Producto"></th>
+                                    <th scope="col" title="Editar Producto"></th>
+                                    <th scope="col" title="Borrar producto"></th>
+                                </tr>
+                                </thead>
+                            <!-- </table> -->
+                            <!-- <article style="overflow-x:auto"> -->
+                                <!-- <table class="adm-table"> -->
+                                    <tbody class="adm-table-body" id="adminContainer">
+                                        <!-- Listado de Productos con JS -->
+                                    </tbody>
+                                </table> 
+                            <!-- </article> -->
+                        </section>
+                    </div>
+                </section>
+            </main>
+
+            <!-- ----------- footer -----------  -->
+            <%- include("../partials/footer") %>
+            <!-- ----------- footer -----------  -->
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <script src="/js/adminPanel.js"></script>
+            <script src="/js/confirmDelete.js"></script>           
+
+
+
+        </body>
+</html>

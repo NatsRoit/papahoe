@@ -1,0 +1,65 @@
+<section class="drawer drawer--left" id="burger-menu" data-drawer-target>
+    <div class="drawer__overlay" data-drawer-close tabindex="-1"></div>
+    <div class="drawer__wrapper">
+        <div class="drawer__header">
+            <button class="drawer__close" data-drawer-close aria-label="Close Drawer"></button>
+        </div>
+        <div class="drawer__content">
+            <ul class="shopMenu">
+                <li class="accordion"><a href="/product/all">Shop All</a></li>
+                <ul id="panel">
+                    <li><a href="/product/all?cat=surfboards">surfboards</a></li>
+                    <li><a href="/product/all?cat=accesorios">accesorios</a></li>
+                    <li><a href="/product/all?cat=complementos">complementos</a></li>
+                </ul>
+
+                <li class="accordion">Board Builder</a></li>
+                <ul id="panel">
+                    <li><a href="/product/boardBuilder">Board Builder</a></li>
+                    <li><a href="/tracker">Board Tracker</a></li>
+                </ul>
+
+                <li class="accordion">About</li>
+                <ul id="panel">
+                    <li><a href="/about">Papa Hoe</a></li>
+                    <li><a href="/about/#teamRiders">Team Riders</a></li>
+                    <li><a href="/faqs">FAQ's</a></li>
+                    <li><a href="/devoluciones">Envíos y Devoluciones</a></li>
+                    <li><a href="/politica-cancelacion">Política de Privacidad</a></li>
+                </ul>
+            </ul>
+            <ul class="userMenu">
+                <% if(locals.usuario) { %>  
+                    <li><a href="/user/profile/<%= locals.usuario.id%>"><span id="usuario-icon"><i class="fa-solid fa-user"></i> Mi perfil</span></a></li>
+                    <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-cart-plus"></i></a></li> -->
+                    <% } else { %>
+                        <li><a href="/user/login"><span id="usuario-icon"><i class="fa-solid fa-user"></i> Login / Register</span></a></li>
+                    <% } %> 
+                    <li><a href="/volumeCalculator"><i class="fa-solid fa-calculator"></i>Volume Calculator</a></li>
+                </ul>
+                <%if(locals.usuario && locals.isAdmin){%>
+                    <ul class="adminMenu">
+                        <li><a href="http://localhost:3000/"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                    </ul>
+                <% } %> 
+            <!-- <ul class="info-footer">
+                <li><h3>¿Necesitas ayuda?</h3></li>
+                <li>info@papahoe.com</li>
+                <li>ARG +54 11 4395 859<br>MEX +52 00 4395 859</li>
+                <li>
+                    <h4>Surfboard Factory</h4>
+                    <p>Calle Cualca 27 <br>
+                    Villa Gesell, Argentina</p>
+                </li>
+                <li>
+                    <h4>DF Showroom</h4>
+                    <p>San Tlatelolco 123 <br>
+                    Colonia Roma, DF</p>
+                </li>
+            </ul>             -->
+        </div>
+    </div>
+</section>
+
+<script src="/js/burger-menu.js"></script>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/head", {title: 'PapaHoe || Admin Create Product'}) %>
+
+
+    <body>
+        <%- include("../partials/header") %>
+            <header class="section-header">
+                <img id="carrousel-image-1" src="/images/stock/guille-unsplash.jpg" alt="PapaHoe foto1">
+            </header>
+
+            <main class="productCreate">
+                <h2>Editor de Productos</h2>
+
+                <section class="main-container">
+
+                    <div class="wrapper-Col-66">
+                        <h2>Nuevo producto</h2>
+                        <div class="register">
+                            <form class="formulario" action="/admin/create" method="POST" enctype="multipart/form-data">
+                                <section class="datos-section">
+
+                                    <div class="form-input">
+                                        <label for="name">Nombre del Producto <% if (typeof errors != 'undefined' && errors.name) { %>
+                                                <span class="under"><%= errors.name.msg %> </span>
+                                            <% } %><sup>*</sup></label>
+                                        <span class="errMsg" id="errMsg"></span>
+                                        <input type="text" name="name" id="nombreProd" placeholder="Ej: Rocker Pocker III">
+                                    </div>
+
+                                    <div class="form-2col">
+                                        <div class="form-input opciones">
+                                            <label for="category_id">Categoría <% if (typeof errors != 'undefined' && errors.category_id) { %>
+                                                <span class="under"><%= errors.category_id.msg %> </span>
+                                            <% } %><sup>*</sup></label>
+                                            <span class="errMsg" id="errMsg"></span>
+                                            <select name="category_id" id="category_id">
+                                                <option value="" disabled selected hidden>Categoría</option>
+                                                <% for (let i =0; i<category.length; i++) { %>
+                                                    <option value="<%= category[i].id%>">
+                                                        <%= category[i].name%>
+                                                    </option>
+                                                    <% } %>
+                                                </select>
+                                        </div>
+                                        
+                                        <div class="form-input opciones">
+                                            <label for="subcategory_id">Subcategoría <% if (typeof errors != 'undefined' && errors.subcategory_id) { %>
+                                                <span class="under"><%= errors.subcategory_id.msg %> </span>
+                                            <% } %><sup>*</sup></label>
+                                            <span class="errMsg" id="errMsg"></span>
+                                            <select name="subcategory_id" id="subcategory_id">
+                                                <option value="" disabled selected hidden>Subcategoría</option>
+                                                <!-- <optgroup class="subCat_gr1" label="Surfboards">
+                                                    <% for (let i =0; i<subcategory.length; i++) { %>
+                                                        <% if (subcategory[i].category_id == 1){ %>
+                                                            <option value="<%= subcategory[i].id%>"><%= subcategory[i].name%></option>
+                                                    <% }} %>
+                                                </optgroup>
+                                                <optgroup class="subCat_gr2" label="Accesorios">
+                                                    <% for (let i =0; i<subcategory.length; i++) { %>
+                                                        <% if (subcategory[i].category_id == 2){ %>
+                                                            <option value="<%= subcategory[i].id%>"><%= subcategory[i].name%></option>
+                                                    <% }} %>
+                                                </optgroup>
+                                                <optgroup class="subCat_gr3" label="Complementos">
+                                                    <% for (let i =0; i<subcategory.length; i++) { %>
+                                                        <% if (subcategory[i].category_id == 3){ %>
+                                                            <option value="<%= subcategory[i].id%>"><%= subcategory[i].name%></option>
+                                                    <% }} %>
+                                                </optgroup>
+                                                <optgroup class="subCat_gr4" label="Custom Board">
+                                                    <% for (let i =0; i<subcategory.length; i++) { %>
+                                                        <% if (subcategory[i].category_id == 4){ %>
+                                                            <option value="<%= subcategory[i].id%>"><%= subcategory[i].name%></option>
+                                                    <% }} %>
+                                                </optgroup> -->
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-input opciones visually-hidden">
+                                        <label for="fin_id">Fin Setup<sup>*</sup></label>
+                                        <span class="errMsg" id="errMsg"></span>
+                                        <select name="fin_id" id="fin_id">
+                                            <option value="" disabled selected hidden>Fin Setup</option>
+                                            <% for (let i =0; i<fins.length; i++) { %>
+                                                <option value="<%= fins[i].id%>">
+                                                    <%= fins[i].name%>
+                                                </option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-input opciones">
+                                        <label for="brand_id">Marca <% if (typeof errors != 'undefined' && errors.brand_id) { %>
+                                            <span class="under"><%= errors.brand_id.msg %> </span>
+                                        <% } %><sup>*</sup></label>
+                                        <span class="errMsg" id="errMsg"></span>
+                                        <select name="brand_id" id="brand_id">
+                                            <option value="" disabled selected hidden>Marca</option>
+                                            <% for (let i =0; i<brand.length; i++) { %>
+                                                <option value="<%= brand[i].id%>">
+                                                    <%= brand[i].name%>
+                                                </option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-2col">
+                                        <div class="form-input">
+                                            <label for="price">Precio Unitario <% if (typeof errors != 'undefined' && errors.price) { %>
+                                                <span class="under"><%= errors.price.msg %> </span>
+                                            <% } %><sup>*</sup></label>
+                                            <span class="errMsg" id="errMsg"></span>
+                                            <div class="secretInput">
+                                                <input type="number" name="price" id="price" placeholder="00.000,00" min="0" pattern="[0-9]+([,][0-9]{1,2})?">
+                                                <!-- <output name="priceCurrency" for="price" id="priceCurrency"></output> -->
+                                            </div>
+                                        </div>
+                                        <!-- <div class="form-input opciones">
+                                            <label for="currency">Moneda</label>
+                                            <select name="currency" id="currency" placeholder="ARS">
+                                                <option value="" disabled selected hidden>ARS</option>
+                                                <option selected value="ARS">ARS</option>
+                                                <option disabled value="MXN">MXN</option>
+                                                <option disabled value="EUR">EUR</option>
+                                                <option disabled value="USD">USD</option>
+                                            </select>
+                                        </div> -->
+                                        <div class="form-input">
+                                            <label for="stock">Stock <% if (typeof errors != 'undefined' && errors.stock) { %>
+                                                <span class="under"><%= errors.stock.msg %> </span>
+                                            <% } %><sup>*</sup></label>
+                                            <span class="errMsg" id="errMsg"></span>
+                                            <input type="number" name="stock" id="stock" min="0" placeholder="Cantidad de unidades disponibles">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-input opciones">
+                                        <label for="description">Descripción <% if (typeof errors != 'undefined' && errors.description) { %>
+                                            <span class="under"><%= errors.description.msg %> </span>
+                                        <% } %><sup>*</sup></label>
+                                        <span class="errMsg" id="errMsg"></span>
+                                        <textarea name="description" id="description" rows="15" placeholder="Describí con detalle y creatividad los principales beneficios del producto."></textarea>
+                                    </div>
+                                    
+                                    <div class="form-input opciones">
+                                        <label for="features">Características <% if (typeof errors != 'undefined' && errors.features) { %>
+                                            <span class="under"><%= errors.features.msg %> </span>
+                                        <% } %><sup>*</sup></label>
+                                        <span class="errMsg" id="errMsg"></span>
+                                        <textarea name="features" id="features" rows="8" placeholder="Enumerá las principales caracterísitcas del producto."></textarea>
+                                    </div>
+
+                                    <div class="form-input">
+                                        <label for="prodImage">Imágenes<sup>*</sup></label>
+                                        <span class="errMsg" id="imgErrMsg"></span>
+                                        <div class="form-5col">
+                                            <div class="prodImgMain">
+                                                <div class="prodImg">
+                                                    <label for="image1" class="labelImg"> 
+                                                        <% if (locals.errors && errors.image1) { %>
+                                                            <span class="under"><%= errors.image1.msg %> </span>
+                                                        <% } %></label><br>
+                                                    <input type="file" name="image1" id="image1" class="visually-hidden">
+                                                    <div id="imgPreview">
+                                                        <p class="cancelCross"><i class="fa-solid fa-xmark"></i></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="prodImgGallery">
+                                                <div class="prodImg">
+                                                    <label for="imageGallery" class="labelImg"></label><br>
+                                                    <input type="file" name="imageGallery" id="imageGallery1" class="visually-hidden">
+                                                    <div id="imgPreview">
+                                                        <p class="cancelCross"><i class="fa-solid fa-xmark"></i></p>
+                                                    </div>
+                                                </div>
+                                                <div class="prodImg">
+                                                    <label for="imageGallery" class="labelImg"></label><br>
+                                                    <input type="file" name="imageGallery" id="imageGallery2" class="visually-hidden">
+                                                    <div id="imgPreview">
+                                                        <p class="cancelCross"><i class="fa-solid fa-xmark"></i></p>
+                                                    </div>
+                                                </div>
+                                                <div class="prodImg">
+                                                    <label for="imageGallery" class="labelImg"></label><br>
+                                                    <input type="file" name="imageGallery" id="imageGallery3" class="visually-hidden">
+                                                    <div id="imgPreview">
+                                                        <p class="cancelCross"><i class="fa-solid fa-xmark"></i></p>
+                                                    </div>
+                                                </div>
+                                                <div class="prodImg">
+                                                    <label for="imageGallery" class="labelImg"></label><br>
+                                                    <input type="file" name="imageGallery" id="imageGallery4" class="visually-hidden">
+                                                    <div id="imgPreview">
+                                                        <p class="cancelCross"><i class="fa-solid fa-xmark"></i></p>
+                                                    </div>
+                                                </div>
+                                                <p class="prodImgCaption">
+                                                    ES NECESARIO AGREGAR AL MENOS UNA IMAGEN PRINCIPAL.<br>
+                                                    Formatos aceptados: .jpg / .jpeg / .png / .gif / .webp <br>
+                                                    Usá preferiblemente imágenes con orientación vertical que no supere 1mb.
+                                                    <!-- Procurá que tus imágenes sean descriptivas y que pongan en evidencia todos los detalles del producto.</p> -->
+                                                </p> 
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <label for="color">Variantes de Color</label>
+                                    <div class="multiSelect opciones">
+                                        <select multiple name="color_id[]" id="color_id">
+                                            <!-- <option value="" disabled selected hidden>Color</option> -->
+                                            <% for (let i =0; i<colors.length; i++) { %>
+                                                <option value="<%= colors[i].id%>">
+                                                    <%= colors[i].name%>
+                                                </option>
+                                            <% } %>
+                                        </select>
+                                    </div>
+                                    
+                                    <!-- <div class="form-input">
+                                        <label for="ability">Ability</label>
+                                        <select name="ability" id="ability">
+                                            <option value="principiante">Principiante</option>
+                                            <option value="intermedio">Intermedio</option>
+                                            <option value="experto">Experto</option>
+                                        </select>
+                                    </div> -->
+                                    
+
+                                    <div class="form-2col">
+                                        <div class="checkbox">
+                                            <div class="opciones" id="sizeGroup">
+                                                <p><strong>Talles Disponibles</strong></p>
+                                                <% for(let i=0; i<sizes.length; i++){ %>
+                                                    <% if (sizes[i].type == "talle") { %>
+                                                        <label for="size"><input type="checkbox" value="<%=sizes[i].id%>" name="size_id[]" id="size">
+                                                        <strong><%=sizes[i].dimension %></strong> <span style="color: gray">( <%=sizes[i].text %> )</span>
+                                                        </label> <br>
+                                                    <% } %>
+                                                <% } %>
+                                            </div>
+                                        </div>
+
+                                        <div class="checkbox">
+                                            <div class="opciones" id="volGroup">
+                                                <p><strong>Dimensiones Disponibles</strong></p>
+                                                <% for(let i=0; i<sizes.length; i++){ %>
+                                                    <% if (sizes[i].type == "vol") { %>
+                                                        <label for="size"><input type="checkbox" value="<%=sizes[i].id%>" name="size_id[]" id="size">
+                                                        <strong><%=sizes[i].dimension %></strong> <span style="color: gray">( <%=sizes[i].text %> )</span>
+                                                        </label> <br>
+                                                    <% } %>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-input prod-descuento">
+                                        <label for="discount">Producto en promoción</label>
+                                        <input type="number" name="discount" id="discount" min="0" max="100" placeholder="Aplicar % descuento">
+                                    </div>
+                                </section>
+
+                                <div class="submit-button">
+                                    <button class="submit-button" type="submit">Crear</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div class="wrapper-Col-33" title="Así se verá tu producto publicado">
+                        <h2>Preview</h2>
+
+                        <div class="prodActivo activado">
+                            <label for="activo"> PUBLICAR
+                                <input form="editProdForm" type="checkbox" name="activo" id="activo" value="on" checked>
+                            </label>
+                        </div>
+
+                        <div class="img-slider">
+                            <img id="previewProdImg" src="/img/_default-product.png" alt="Preview del producto">
+                        </div>
+
+                        <div class="secretInput">
+                            <output name="namePreview" for="name" id="namePreview"></output>
+                            <output name="brandPreview" for="brand_id" id="brandPreview"></output>
+                            <output name="priceCurrency" for="price" id="priceCurrency"></output>
+                        </div>
+                        (EN CONSTRUCCIÓN)
+                    </div>
+                </section>
+            </main>
+
+            <%- include("../partials/footer") %>
+            <script src="/js/adminCreateValidation.js"></script>
+            <script src="/js/multiselect-dropdown.js" ></script>
+        </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-  include("./partials/head", {title: 'PapaHoe || Not Found'}) %>
+
+
+    <body>
+        <%- include("./partials/header") %>
+    
+    <main class="not-found" >
+        <img id="papaOops" src="/images/brand/PapaHoeAsset 27@500x.png" alt="PapaHoe Error 404:NotFound">
+        <div class="contenedor-linea">
+            <img id="la-linea" src="/images/brand/PapaHoe-ELEMENTS-LaLinea.png" alt="">
+        </div>
+        <div class="col1 err404">
+            <div>
+                <div>
+                </div>
+                <div>
+                    <span id="big404"> 404 </span>
+                    <span id="smallNotFound">Not<br>Found </span>
+
+                    <p>
+                        Parece que la página que estás buscando no existe! <br>
+                        Por favor controlá la URL y volvé a intentarlo.
+                    </p>
+                    <p>O dejate inspirar por nuestros productos e historias:</p>
+                </div>
+                <ul class="err404">
+                    <li><a href="/">Home | </a></li>
+                    <li><a href="/product/all"> Shop | </a></li>
+                    <li><a href="/about"> About </a></li>
+                </ul>
+            </div>
+            <div>
+
+            </div>
+        </div>
+        
+        </main>
+    <%- include("./partials/footer") %>
+
+    </body> 
+</html>

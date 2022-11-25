@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include("../partials/head", {title: 'PapaHoe || Volume Calculator'}) %>
+
+    <body>
+        <%- include("../partials/header") %>
+
+            <header class="section-header">
+                <img id="carrousel-image-1" src="../images/stock/jeremy-bishop-pikyGuAmwpM-unsplash.jpg" alt="PapaHoe foto1">
+            </header>
+
+            <main class="volume-calculator-view">
+                <div class="title-calculator-view">
+                    <h1>Volume Calculator</h1>
+                    <h2>¿QUÉ TAMAÑO DE TABLA DEBO COMPRAR?</h2>
+                    <p>Descubrí cuál es la talla de tu tabla en función de tu perfil de surfista.</p>
+                </div>
+
+                <div class="form-calculator">
+                    <form action="/volumeCalculator" method="GET">
+                        <div class="volume-container">
+                            <label for="peso">Peso: </label>
+                            <output> 50 kg.</output>
+                            <input class="volumeRange" id="peso" type="range" min="20" max="110" value="50" step="1" list="peso-marks" name="peso"
+                            oninput="this.previousElementSibling.innerHTML = this.value + ' kg.'">
+                        </div>
+                        <div class="volume-container">
+                            <label for="altura">Altura: </label>
+                            <output></output>
+                            <input class="volumeRange" id="altura" type="range" min="130" max="210" value="0" step="1" list="tickmarks" name="altura"
+                            oninput="this.previousElementSibling.innerHTML = this.value + ' cm.'">
+                        </div>
+                        <div class="volume-container">
+                            <label for="edad">Edad: </label>
+                            <output></output>
+                            <input class="volumeRange" id="edad" type="range" min="1" max="100" value="0" step="1" list="tickmarks" name="edad"
+                            oninput="this.previousElementSibling.innerHTML = this.value + ' años'">
+                        </div>
+                        <div class="volume-container">
+                            <label for="experiencia">Experiencia: </label>
+                            <output></output>
+                            <input class="volumeRange" id="experiencia" type="range" min="0" max="4" value="0" step="1" name="experiencia" list="expmark">
+                            <datalist id="expmark">
+                                <option value="0" label="QuisieraEmpezar">QuisieraEmpezar</option>
+                                <option value="1" label="Beginner">Beginner</option>
+                                <option value="2" label="Intermedio">Intermedio</option>
+                                <option value="3" label="Avanzado">Avanzado</option>
+                                <option value="4" label="Experto">Experto</option>
+                            </datalist>
+                        </div>
+
+                        <!-- <div class="volume-container hidden">
+                            <label for="entrenamiento">Entreno</label><br>
+                            <select name="entrenamiento" id="entrenamiento">
+                                <option value="bajo">Mmmhhh</option>
+                                <option value="medio">Podría entrenar más</option>
+                                <option value="alto">Bastante</option>
+                            </select>
+                        </div>
+                        <div class="volume-container  hidden">
+                            <label for="frecuencia">Frecuencia</label><br>
+                            <select name="frecuencia" id="frecuencia">
+                                <option value="nunca">3/5 veces por semana</option>
+                                <option value="mensualmente">1 vez por semana</option>
+                                <option value="semanalmente">1/2 veces por mes</option>
+                                <option value="diariamente">1/2 veces por año</option>
+                            </select>
+                        </div> -->
+                        <button type="submit" class="boton" id="calcularVol" >Calculá mi talla</button>
+                    </form>
+                </div>
+
+                <div class="result-calculator">
+                    <h2>Tu volumen recomendado</h2>
+
+                    <h1>Volumen & Dimensiones</h1>
+                    <p>El volumen de una tabla de surf se calcula a partir de su longitud, ancho y espesor, Pero visto
+                        que cada tabla tiene una forma diferente, dos tablas de surf con las mismas dimensiones pueden tener un
+                        volumen completamente diferente. debido a estos parámetros que se utilizan en el cálculo del
+                        volumen.</p><br><br>
+
+                    <p>El volumen da un índice de flotación de la tabla de surf y se calcula en litros. Hoy en día,
+                        este volumen se puede calcular fácilmente a través de un software especializado.<br><br>
+
+                        Un mayor volumen te permitirá remar más fácilmente y un estilo de surf más rápido: montarás más
+                        olas y con menos esfuerzo. ¡Pero cuidado! Si tu tabla tiene demasiado volumen, flotarás demasiado y
+                        será más difícil hacer giros y maniobras en las olas.</p><br><br>
+
+                    <p>Por el contrario, si no tenés suficiente volumen en tu tabla, no flotarás lo suficiente, tu surf
+                        será más lento, arrancar en las olas será más difícil y tendrás que gastar más energía para poder
+                        remarla. Una vez de pie en la tabla, un surfista inexperto tendrá más dificultades para mantener su velocidad
+                        sobre la ola.</p>
+                </div>
+
+                <div>
+                    <img src="/images/stock/surfboards-ryan-lovelace-10.jpeg" alt="">
+                </div>
+            </main>
+            <%- include("../partials/footer") %>
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/volumeCalculator.js"></script>
+    </body>
+
+</html>

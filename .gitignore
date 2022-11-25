@@ -1,0 +1,8 @@
+# Dependencias
+node_modules/
+
+# Archivos de Mac
+.DS_Store
+
+# Claves
+.env

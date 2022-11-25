@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include("../partials/head", {title: 'PapaHoe||Admin Edit Product'}) %>
+
+    <body>
+        <%- include("../partials/header") %>
+            <header class="section-header">
+                <img id="carrousel-image-1" src="/images/stock/guille-unsplash.jpg" alt="PapaHoe foto1">
+            </header>
+
+            <main class="productCreate">
+                <h2>Editor de Productos</h2>
+
+                <section class="main-container">
+
+                  <div class="wrapper-Col-66">
+                    <h2>Editar producto</h2>
+                    <div class="register">
+                      <form class="formulario" action="/admin/edit/<%=producto.id%>?_method=PUT" method="POST" enctype="multipart/form-data" id="editProdForm">
+                        <section class="datos-section">
+
+                          <div class="form-input">
+                              <label for="name">Nombre del Producto</label>
+                              <span class="errMsg" id="errMsg"></span>
+                              <input type="text" name="name" id="nombreProd" placeholder="Ej: Rocker Pocker III" value="<%=producto.name%>" required>
+                          </div>
+
+                          <div class="form-2col">
+                              <div class="form-input opciones">
+                                  <label for="category_id">Categoría<sup>*</sup></label>
+                                  <span class="errMsg" id="errMsg"></span>
+                                  <select name="category_id" id="category_id">
+                                      <option value="<%=producto.categoria.id%>" selected><%=producto.categoria.name%></option>
+                                      <% for (let i =0; i<category.length; i++) { %>
+                                        <% if(category[i].id != producto.categoria.id){ %>
+                                          <option value="<%= category[i].id%>"><%= category[i].name%></option>
+                                      <% }} %>
+                                  </select>
+                              </div>
+                              
+                              <div class="form-input opciones">
+                                  <label for="subcategory_id">Subcategoría<sup>*</sup></label>
+                                  <span class="errMsg" id="errMsg"></span>
+                                  <select name="subcategory_id" id="subcategory_id">
+                                    <option value="<%=producto.subcategoria.id%>" selected><%=producto.subcategoria.name%></option>
+                                    <% for (let i =0; i<subcategory.length; i++) { %>
+                                      <% if(subcategory[i].id != producto.subcategoria.id){ %>
+                                    <option value="<%= subcategory[i].id%>"><%= subcategory[i].name%></option>
+                                    <% }} %>
+                                </select>
+                              </div>
+                          </div>
+
+                          <div class="form-input opciones visually-hidden">
+                            <label for="fin_id">Fin Setup<sup>*</sup></label>
+                            <span class="errMsg" id="errMsg"></span>
+                            <select name="fin_id" id="fin_id">
+                              <% for (let i =0; i<fins.length; i++) { %>
+                                <% if (producto.fin && (producto.fin.id == fins[i].id)){ %>
+                                  <option value="<%= fins[i].id%>" selected><%= fins[i].name%></option>
+                                <% } else { %>
+                                  <option value="<%= fins[i].id%>">
+                                    <%= fins[i].name%>
+                                  </option>
+                              <% }} %>
+                            </select>
+                          </div>
+
+                          <div class="form-input opciones">
+                            <label for="brand_id">Marca<sup>*</sup></label>
+                            <span class="errMsg" id="errMsg"></span>
+                            <select name="brand_id" id="brand_id">
+                              <option value="<%=producto.marca.id%>" selected><%=producto.marca.name%></option>
+                              <% for (let i =0; i<brand.length; i++) { %>
+                                <% if(brand[i].name != producto.marca.name){ %>
+                                  <option value="<%= brand[i].id%>">
+                                    <%= brand[i].name%>
+                                  </option>
+                                <% } %>
+                              <% } %>
+                            </select>
+                          </div>
+
+                          <div class="form-2col">
+                            <div class="form-input">
+                                <label for="price">Precio Unitario<sup>*</sup></label>
+                                <span class="errMsg" id="errMsg"></span>
+                                <div class="secretInput">
+                                  <input type="number" name="price" id="price" placeholder="00.000,00" min="0" step=".1" pattern="[0-9]+([,][0-9]{1,2})?" value="<%=producto.price%>">
+                              </div>
+                            </div>
+
+                            <div class="form-input">
+                              <label for="stock">Stock<sup>*</sup></label>
+                              <span class="errMsg" id="errMsg"></span>
+                              <input type="number" name="stock" id="stock" placeholder="Cantidad de unidades disponibles" value="<%=producto.stock%>">
+                            </div>
+                          </div>
+
+                          <div class="form-input opciones">
+                              <label for="description">Descripción<sup>*</sup></label>
+                              <span class="errMsg" id="errMsg"></span>
+                              <textarea name="description" id="description" rows="15"><%=producto.description%></textarea>
+                          </div>
+                          
+                          <div class="form-input opciones">
+                              <label for="features">Características<sup>*</sup></label>
+                              <span class="errMsg" id="errMsg"></span>
+                              <textarea name="features" id="features" rows="8"><%=producto.features%></textarea>
+                          </div>
+
+                        <!-- Sección para cargar la/s imagen/es de Producto. La 1ra es obligatoria, las otras (un array de imágenes) no lo son. -->
+                        <div class="form-input">
+                          <label for="prodImage">Imágenes<sup>*</sup></label>
+                          <span class="errMsg" id="imgErrMsg"></span>
+                          <div class="form-5col">
+                            <div class="prodImgMain">
+                              <div class="prodImg">
+                                <label for="image1" class="labelImg"></label><br>
+                                <input type="file" name="image1" id="image1" class="visually-hidden" value="<%= producto.image1%>">
+                                <input type="hidden" name="oldImagen1" value="<%= producto.image1%>">
+                                <div id="imgPreview">
+                                  <p class="cancelCross"><i class="fa-solid fa-xmark"></i></p>
+                                  <img src="/img/<%= producto.image1%>" alt="">
+                                </div>
+                              </div>
+                            </div>
+                            <div class="prodImgGallery">
+                              <div class="prodImg">
+                                <label for="imageGallery1" class="labelImg"></label><br>
+                                <input type="file" name="imageGallery" id="imageGallery1" class="visually-hidden">
+                                <input type="hidden" name="oldImagen2" value="<%= producto.image2? producto.image2 : ""%>">
+                                <div id="imgPreview">
+                                  <p class="cancelCross"><i class="fa-solid fa-xmark"></i></p>
+                                  <img src="/img/<%= producto.image2 ? producto.image2 : "" %>" alt="">
+                                </div>
+                              </div>
+                              <div class="prodImg">
+                                <label for="imageGallery2" class="labelImg"></label><br>
+                                <input type="file" name="imageGallery" id="imageGallery2" class="visually-hidden">
+                                <input type="hidden" name="oldImagen3" value="<%= producto.image3? producto.image3 : ""%>">
+                                <div id="imgPreview">
+                                  <p class="cancelCross"><i class="fa-solid fa-xmark"></i></p>
+                                  <img src="/img/<%= producto.image3 ? producto.image3 : "" %>" alt="">
+                                </div>
+                              </div>
+                              <div class="prodImg">
+                                <label for="imageGallery3" class="labelImg"></label><br>
+                                <input type="file" name="imageGallery" id="imageGallery3" class="visually-hidden">
+                                <input type="hidden" name="oldImagen4" value="<%= producto.image4? producto.image4 : ""%>">
+                                <div id="imgPreview">
+                                  <p class="cancelCross"><i class="fa-solid fa-xmark"></i></p>
+                                  <img src="/img/<%= producto.image4 ? producto.image4 : "" %>" alt="">
+                                </div>
+                              </div>
+                              <div class="prodImg">
+                                <label for="imageGallery4" class="labelImg"></label><br>
+                                <input type="file" name="imageGallery" id="imageGallery4" class="visually-hidden">
+                                <input type="hidden" name="oldImagen5" value="<%= producto.image5? producto.image5 : ""%>">
+                                <div id="imgPreview">
+                                  <p class="cancelCross"><i class="fa-solid fa-xmark"></i></p>
+                                  <img src="/img/<%= producto.image5 ? producto.image5 : "" %>" alt="">
+                                </div>
+                              </div>
+                              <p class="prodImgCaption">
+                                ES NECESARIO AGREGAR AL MENOS UNA IMAGEN PRINCIPAL.<br>
+                                Formatos aceptados: .jpg / .jpeg / .png / .gif / .webp <br>
+                                Usá preferiblemente imágenes con orientación vertical que no supere 1mb.
+                                <!-- Procurá que tus imágenes sean descriptivas y que pongan en evidencia todos los detalles del producto.-->
+                              </p> 
+                            </div>
+                          </div>
+                        </div>
+
+                          <!-- Sección para seleccionar el color/es. La clase "multiSelect"
+                          activa un script que permite seleccionar los colores y crear etiquetas -->
+                          <div class="multiSelect opciones">
+                            <label for="color">Variantes de Color</label>
+                              <select multiple name="color_id[]" id="color_id">
+                                  <% for (let i =0; i<colors.length; i++) { %>
+                                    <% if (producto.colores.map(el => el.id).includes(colors[i].id)) { %>
+                                      <option value="<%=colors[i].id%>" selected><%=colors[i].name%></option>
+                                      <% } else { %>
+                                      <option value="<%=colors[i].id%>"> <%=colors[i].name%> </option>
+                                      <% }} %>
+                              </select>
+                          </div>
+
+                          <div class="form-2col">
+                            <div class="checkbox">
+                            <div class="opciones" id="sizeGroup">
+                              <p><strong>Talles Disponibles</strong></p>
+                              <% for(let i=0; i<sizes.length; i++){ %>
+                                <% if (sizes[i].type == "talle") { %>
+                                  <% if (producto.dimensiones.map(el => el.id).includes(sizes[i].id)) { %>
+                                  <label for="size"><input type="checkbox" value="<%=sizes[i].id%>" name="size_id[]" id="size" checked>
+                                    <strong><%=sizes[i].dimension %></strong> <span style="color: gray">( <%=sizes[i].text %> )</span>
+                                  </label><br>
+                                <% } else { %>
+                                  <label for="size"><input type="checkbox" value="<%=sizes[i].id%>" name="size_id[]" id="size">
+                                    <strong><%=sizes[i].dimension %></strong> <span style="color: gray">( <%=sizes[i].text %> )</span>
+                                  </label> <br>
+                                <% }} %>
+                              <% } %>
+                            </div>
+                          </div>
+                          <div class="checkbox">
+                            <div class="opciones" id="volGroup">
+                              <p><strong>Dimensiones Disponibles</strong></p>
+                                <% for(let i=0; i<sizes.length; i++){ %>
+                                  <% if (sizes[i].type == "vol") { %>
+                                    <% if (producto.dimensiones.map(el => el.id).includes(sizes[i].id)) { %>
+                                    <label for="size"><input type="checkbox" value="<%=sizes[i].id%>" name="size_id[]" id="size" checked>
+                                      <strong><%=sizes[i].dimension %></strong> <span style="color: gray">( <%=sizes[i].text %> )</span>
+                                    </label><br>
+                                  <% } else { %>
+                                    <label for="size"><input type="checkbox" value="<%=sizes[i].id%>" name="size_id[]" id="size">
+                                      <strong><%=sizes[i].dimension %></strong> <span style="color: gray">( <%=sizes[i].text %> )</span>
+                                    </label> <br>
+                                  <% }} %>                                 
+                                <% } %>
+                              </div>
+                          </div>
+                        </div>
+
+                          <div class="form-input prod-descuento">
+                            <label for="discount">Producto en promoción</label>
+                            <input type="number" name="discount" id="discount" min="0" max="100" placeholder="Querés aplicar un descuento?" value="<%=producto.discount? producto.discount : 0 %>">
+                          </div>
+                        </section>
+
+                        <div class="submit-button">
+                            <button class="submit-button" type="submit">Confirmar</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+
+
+                  <div class="wrapper-Col-33" title="Así se verá tu producto publicado">
+                      <!-- <h2>Preview</h2> -->
+
+                    <div class="img-slider">
+                        <img id="previewProdImg" src="/img/<%=producto.image1%>" alt="<%=producto.name%>">
+                    </div>
+
+                    <% if (producto.active) { %>
+                      <div class="prodActivo activado">
+                        <label for="activo"> PUBLICAR
+                          <input form="editProdForm" type="checkbox" name="activo" id="activo" value="on" checked>
+                      <% } else { %>
+                      <div class="prodActivo">
+                        <label for="activo"> PUBLICAR
+                          <input form="editProdForm" type="checkbox" name="activo" id="activo" value="false">
+                      <% } %>
+                        </label>
+                    </div>
+
+                    <!-- <div class="secretInput">
+                      <output name="namePreview" for="name" id="namePreview"></output>
+                      <output name="brandPreview" for="brand_id" id="brandPreview"></output>
+                      <output name="priceCurrency" for="price" id="priceCurrency"></output>
+                    </div> -->
+
+                      (EN CONSTRUCCIÓN)
+                  </div>
+                </section>
+            </main>
+
+            <%- include("../partials/footer") %>
+            <script src="/js/adminEditValidation.js"></script>
+            <script src="/js/multiselect-dropdown.js" ></script>
+    </body>
+</html>

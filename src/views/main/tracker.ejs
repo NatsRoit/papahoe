@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <%- include("../partials/head", {title: 'PapaHoe || Seguimiento de  envio'}) %>
+
+  <body class="bodytrack">
+    <%- include("../partials/header") %>
+      <main>
+        <!-- The tracker -->
+
+        <div class="tracker fade" id="mytracker">
+          <div class="tracker-dialog tracker-dialog-centered">
+            <div class="tracker-content">
+
+              <!-- tracker Header -->
+              <div class="tracker-header">
+                <h3>Número de orden<br><br></h3>
+                <h4>AWB Number-5335T5S</h4>
+
+              </div>
+
+              <!-- tracker body -->
+              <div class="tracker-body">
+                <div class="progress-track">
+                  <ul id="progressbar">
+                    <li class="step0 active " id="step1">Pedido</li>
+                    <li class="step0 active text-center" id="step2">Despachado</li>
+                    <li class="step0 active text-right" id="step3"><span id="three">En viaje</span></li>
+                    <li class="step0 text-right" id="step4">Entregado</li>
+                  </ul>
+                </div>
+                <div class="d-table-row">
+                  <div class="d-table-cell">
+                    Fecha Estimada de Entrega:
+                  </div>
+                  <div class="d-table-cell">
+                    24/12/2022
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+            <div class='politica-cancelacion'>
+              <h3>Politica de cancelacion</h3>
+              <p>Su derecho de cancelación a cambio de un reembolso total dura hasta la medianoche del tercer día hábil
+                contado a partir de la fecha de la venta. El sábado se considera día hábil, pero los domingos y feriados
+                federales no. Por ejemplo:
+
+                Si la venta se hace un lunes de una semana que no tienen ningún feriado federal, usted tiene tiempo para
+                cancelar hasta la medianoche del jueves.
+                Si la venta se hace un lunes y el martes de esa semana es feriado federal, usted tiene tiempo para
+                cancelar hasta la medianoche del viernes.
+                Si la venta se hace un viernes, y el lunes y el martes de la semana siguiente no son feriados federales,
+                usted tiene tiempo para cancelar hasta la medianoche del martes.
+                Si la venta se hace un viernes y lunes siguiente es feriado federal, usted tiene tiempo para cancelar
+                hasta la medianoche del miércoles.</p>
+
+            </div>
+          </div>
+        </div>
+      </main>
+    <%- include("../partials/footer") %>
+  </body>
+
+</html>

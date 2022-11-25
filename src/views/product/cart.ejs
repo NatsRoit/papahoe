@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include("../partials/head", {title: 'PapaHoe || Carrito' }) %>
+
+    <body>
+        <%- include("../partials/header") %>
+
+            <!-- <header class="section-header">
+                <img id="carrousel-image-1" src="./img/jeremy-bishop-pikyGuAmwpM-unsplash.jpg" alt="PapaHoe foto1">
+            </header> -->
+
+            <main class="productCart">
+                <div class="contenedor">
+                    <div class="cartItems">
+                        <ul class="breadcrumb">
+                            <li><a href="/product/all">Shop</a></li>
+                            <li><a href="/product/cart" style="color: black;">Carrito</a></li>
+                            <li><a href="/product/checkout">Checkout</a></li>
+                        </ul>
+                        <div class="title">
+                            <h1>Carrito de Compras</h1>
+                            <a href="/product/all">Seguir comprando</a>
+                        </div>
+                        <!-- producto N1 -->
+                        <div class="item">
+                            <div class="image">
+                                <img src="/img/img_9758-1b.png" alt="producto">
+                            </div>
+
+                            <div class="description">
+                                <h4>Tabla Pipona</h4>
+                                <p>Otra descripcion</p>
+                                <p>Precio Unitario</p>
+
+                            </div>
+
+                            <div class="quantity">
+                            
+                                <input class="quant-imput" type="number" min="1" max="100">
+                                <button class="plus-btn" type="button" name="button">
+                                </button>
+                            </div>
+
+                            <div class="total-price">$525,00</div>
+
+                            <div class="buttons">
+                                <span class="delete-btn"><i class="fa-solid fa-trash-can"></i>
+                                </span>
+                                <!-- <span class="like-btn"></span> -->
+                            </div>
+                        </div>
+                        <!-- producto N2 -->
+                        <div class="item">
+                            <div class="image">
+                                <img style="mix-blend-mode: multiply;" src="/img/short-bord-example-back.jpg">
+                            </div>
+                            <div class="description">
+                                <h4>Forget Me Not 2 round tail</h4>
+                                <p> 6' 1" x 18 7/8" x 2 7/16" x 29L - FCS</p>
+                                <p>Precio Unitario</p>
+                            </div>
+                            <div class="quantity">
+                                <input class="quant-imput" type="number" min="1" max="100">
+                                <button class="plus-btn" type="button" name="button">
+                                </button>
+                            </div>
+                            <div class="total-price">$525,00</div>
+                            <div class="buttons">
+                                <span class="delete-btn"><i class="fa-solid fa-trash-can"></i>
+                                </span>
+                                <!-- <span class="like-btn"></span> -->
+                            </div>
+                        </div>
+                    </div>
+                    <section class="summary">
+                        <h1>Order Summary</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quisquam ipsam nesciunt
+                            dolorum
+                            natus tempora suscipit cupiditate veritatis cumque ut, iure commodi deserunt distinctio,
+                            laboriosam iste quod vel repellat iusto?</p>
+                        <br><br>
+                        <form action="/product/checkout" method="GET">
+                            <button class="submit-button" type="submit">Checkout</button>
+                        </form>
+                    </section>
+                </div>
+
+            </main>
+            <%- include("../partials/footer") %>
+    </body>
+
+</html>

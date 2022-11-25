@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-------------------------HEAD-------------------------->
+<%- include("../partials/head", {title: 'PapaHoe Surfshop' }) %>
+
+    <body>
+        <!-----------------------HEADER-------------------------->
+        <%- include("../partials/header") %>
+
+            <!----------------------- SLIDER HEADER ----------------------->
+            <header class="slider">
+                <!-- <div class="slider-controller">
+                    <button type="button" id="prev"><i class="fa-solid fa-chevron-right fa-rotate-180"></i></button>
+                    <button type="button" id="next"><i class="fa-solid fa-chevron-right"></i></button>
+                </div> -->
+                <!-- <a class="carousel-control-prev" href="#SimpleCarouselExample" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#SimpleCarouselExample" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a> -->
+                <div class="slides">
+                    <div class="carrousel">
+                        <div class="overlay-text">
+                            <p>PapaHoe: nuestro <br> compromiso <br>con el océano.</p>
+                            <a class="button-link rosa" href="/#">leer más</a>
+                        </div>
+                        <img src="images/stock/papa-hoe-header-photo1.jpg" alt="PapaHoe Surfboards">
+                    </div>
+                    <div class="carrousel">
+                        <div class="overlay-text">
+                            <p>Britt Merrick: <br> la competencia <br>del año.</p>
+                            <a class="button-link rosa" href="/#">leer más</a>
+                        </div>
+                        <img src="images/stock/mathieu-chirico-sFSZuKI2CvY-unsplash.jpg" alt="PapaHoe foto2">
+                    </div>
+                    <div class="carrousel">
+                        <img src="images/stock/papaHoe-new-release.jpg" alt="PapaHoe Surfboards">
+                    </div>
+                    <div class="carrousel">
+                        <div class="overlay-text">
+                            <p>Shaper o no Shaper: <br> esa es la <br>pregunta.</p>
+                            <a class="button-link rosa" href="/#">leer más</a>
+                        </div>
+                        <img src="images/stock/jeremy-bishop-E55BPtMqh2I-unsplash.jpg" alt="PapaHoe Surfboards">
+                    </div>
+                </div>
+            </header>
+
+            <!----------------------- PRODUCTO DESTACADO ----------------------->
+            <main class="main-home">
+                <div class="producto-destacado">
+                    <div class="contenedor-producto">
+                        <img src="/img/img_9758-1b.png" alt="Gun Hoover">
+                    </div>
+                    <div class="descripcion-producto">
+                        <h1> Inner Joint Acapulco</h1>
+                        <h2><a href="/product/detail/18"></a>Conocé la nueva colección</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod
+                            tincidunt
+                            ut
+                            laoreet dolore magna aliquam. </p>
+                    </div>
+                    <div class="destacado-tabla">
+                        <p>CARACTERÍSTICAS</p>
+                        <p>
+                            Una tabla que te da máxima velocidad y sustentación para complementar su juego aéreo.
+                            Una cola de squash estrecha para el control combinada con un poco de volumen delantero
+                            adicional y rieles más bajos lo convierte en un excelente planeo en condiciones más
+                            completas.
+                            Recomendamos esta tabla solo para surfistas intermedios y avanzados.
+                        </p>
+                    </div>
+                </div>
+
+                <!----------------------- CATEGORÍAS SURFBOARDS ----------------------->
+                <div class="categorias-home">
+                    <div class="categorias-image">
+                        <a href="/product/all?keyword=shortboards">shortboards</a>
+                        <img src="images/stock/jeremy-bishop-_CFv3bntQlQ-unsplash.jpg" alt="PapaHoe Tablas">
+                    </div>
+                    <div class="categorias-image">
+                        <a href="/product/all?keyword=mid-boards">mid-length</a>
+                        <img src="images/stock/paje-victoria-FXB79QuRX3M-unsplash.jpg" alt="PapaHoe Complementos">
+                    </div>
+                    <div class="categorias-image">
+                        <a href="/product/all?keyword=longboards">longboards</a>
+                        <img src="images/stock/jeremy-bishop-E55BPtMqh2I-unsplash.jpg" alt="PapaHoe Accesorios">
+                    </div>
+                </div>
+
+                <!----------------------- MODEL FINDER ----------------------->
+                <div class="model-finder">
+                    <div class="descripcion">
+                        <h1>Model Finder</h1>
+                        <h2>No sabés por dónde empezar?</h2>
+                        <p>Dejáte llevar por la corriente y echale un vistazo a nuestras últimas colecciones o comenzá a
+                            diseñar tu tabla personalizada.</p>
+
+                        <a class="button-link" id="explora" href="product/all">explorá</a>
+                        <a class="button-link" id="crea" href="product/boardBuilder">creá</a>
+                    </div>
+                    <div class="contenedor-linea">
+                        <img id="la-linea" src="images/brand/PapaHoe-ELEMENTS-Lalinea.png" alt="">
+                    </div>
+                    <div class="imagen-model-finder">
+                        <img src="images/stock/papaHoe-BoardBuilder-Cover2.png" alt="">
+                    </div>
+                </div>
+
+                <!----------------------- VOLUME CALCULATOR ----------------------->
+                <div class="volume-calculator home">
+                    <div class="title-calculator">
+                        <h1>Volume Calculator</h1>
+                        <h2>¿QUÉ TAMAÑO DE TABLA DEBO COMPRAR?</h2>
+                        <p><strong>Descubrí cuál es la talla de tu tabla en función de tu perfil de surfista.</strong></p>
+                        <p>El cálculo del volumen de una tabla de surf se calcula a partir de su longitud, anchura y
+                            grosor, pero no sólo, de hecho cada tabla tiene una forma diferente, una nariz y una cola
+                            más o menos gruesa, rocker y cóncava o convexa. Dos tablas de surf con las mismas
+                            dimensiones pueden tener un volumen completamente diferente debido a estos parámetros que se
+                            utilizan en el cálculo del volumen.</p>
+
+                        <p>Más volumen te aportará un remo fácil, un surf rápido, arrancarás en más olas y con menos
+                            esfuerzo.</p>
+                    </div>
+                    <div class="form-calculator">
+                        <form action="/volumeCalculator" method="GET">
+                            <div class="volume-container">
+                                <label for="peso">Peso: </label>
+                                <output> 50 kg.</output>
+                                <input class="volumeRange" id="peso" type="range" min="20" max="110" value="50" step="1" list="peso-marks" name="peso"
+                                oninput="this.previousElementSibling.innerHTML = this.value + ' kg.'">
+                            </div>
+                            <div class="volume-container">
+                                <label for="altura">Altura: </label>
+                                <output></output>
+                                <input class="volumeRange" id="altura" type="range" min="130" max="210" value="0" step="1" list="tickmarks" name="altura"
+                                oninput="this.previousElementSibling.innerHTML = this.value + ' cm.'">
+                            </div>
+                            <div class="volume-container">
+                                <label for="edad">Edad: </label>
+                                <output></output>
+                                <input class="volumeRange" id="edad" type="range" min="1" max="100" value="0" step="1" list="tickmarks" name="edad"
+                                oninput="this.previousElementSibling.innerHTML = this.value + ' años'">
+                            </div>
+                            <div class="volume-container">
+                                <label for="experiencia">Experiencia: </label>
+                                <output></output>
+                                <input class="volumeRange" id="experiencia" type="range" min="0" max="4" value="0" step="1" name="experiencia" list="expmark">
+                                <datalist id="expmark">
+                                    <option value="0" label="QuisieraEmpezar">QuisieraEmpezar</option>
+                                    <option value="1" label="Beginner">Beginner</option>
+                                    <option value="2" label="Intermedio">Intermedio</option>
+                                    <option value="3" label="Avanzado">Avanzado</option>
+                                    <option value="4" label="Experto">Experto</option>
+                                </datalist>
+                            </div>
+                            <button type="submit" class="boton" id="calcularVol" >Calculá mi talla</button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+            <%- include("../partials/footer") %>
+        <script src="/js/home.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/volumeCalculator.js"></script>
+    </body>
+
+</html>

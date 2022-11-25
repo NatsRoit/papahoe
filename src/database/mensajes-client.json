@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "email": "nats.admin@gmail.com",
+        "nombre": "Nataluchi",
+        "mensaje": "Esta es una re prueba!!!!!"
+    },
+    {
+        "id": 2,
+        "email": "nats.admin@gmail.com",
+        "nombre": "Naskl",
+        "mensaje": "laksdladladlasldald"
+    },
+    {
+        "id": 3,
+        "email": "nats.admin@gmail.com",
+        "nombre": "Nats3",
+        "mensaje": "paskdpadlñadñakñdñasd"
+    },
+    {
+        "id": 4,
+        "email": "nats.admin@gmail.com",
+        "nombre": "Nats",
+        "mensaje": "Hola, esta es una prueba para retomar todo..."
+    },
+    {
+        "id": 5,
+        "email": "mabel@gmz.com",
+        "nombre": "GRACIELA",
+        "mensaje": "hola mi pequeña! Cómo estás??\r\nCon pasaporte nuevo.\r\nTe amo!"
+    }
+]

@@ -1,0 +1,31 @@
+<section class="drawer" id="user-menu" data-drawer-target>
+    <div class="drawer__overlay" data-drawer-close tabindex="-1"></div>
+    <div class="drawer__wrapper">
+
+        <div class="drawer__content">
+            <ul class="userMenu">
+                    <li><a href="/user/profile/<%= locals.usuario.id%>"><span id="usuario-icon"><i class="fa-solid fa-user"></i> Mi perfil</span></a></li>
+                    <li><a href="/volumeCalculator"><i class="fa-solid fa-calculator"></i> Volume Calculator</a></li>
+            </ul>
+
+            <%if(locals.usuario && locals.isAdmin){ %>
+                <ul class="userMenu">
+                    <li><a href="/admin/create"><i class="fa-solid fa-plus"></i> Crear Producto</a></li>
+                    <li id="linkdisabled"><a role="link" href=""><i class="fa-solid fa-pencil"></i> Editar Producto</a></li>
+                    <li id="linkdisabled"><a role="link" href=""><i class="fa-solid fa-trash"></i>Eliminar Producto</a></li>
+                    <li class="adminMenu"><a href="/admin"><i class="fa-solid fa-list-check"></i> Panel de Control</a></li>
+                </ul>    
+
+                <ul class="adminMenu">
+                    <li><a href="http://localhost:3000/" target="_blank"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+                </ul>
+            <% } %>
+            <ul class="userMenu">
+                <li><a href="/user/logout"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+            </ul>
+
+        </div>
+    </div>
+</section>
+
+<script src="/js/user-menu.js"></script>

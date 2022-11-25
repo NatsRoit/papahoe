@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include("../partials/head", {title: 'PapaHoe || Shop'}) %>
+
+    <body>
+        <%- include("../partials/header") %>
+
+        <header class="section-header">
+            <img id="carrousel-image-1" src="/images/stock/guille-unsplash.jpg"
+                alt="PapaHoe foto1">
+        </header>
+
+        <%if(locals.isAdmin){%>
+            <div class="adminOpt">
+                <div id="createProduct">
+                    <a href="/admin/create"><i class="fa-solid fa-plus"></i> </a>
+                </div>
+            </div>
+            <% }%>
+
+        <main class="shop">
+            <div class="shop-filters">
+                <div id="open-filters">
+                    <ul class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/product/all">Shop All</a></li>
+                    </ul>
+                    
+                </div>
+                <div id="open-filters">
+                    <span class="iconButton filter-blue">
+                        <p>filtrar / ordenar</p>
+                        <img src="/assets/sort_filter.svg" alt="">
+                    </span>
+                </div>
+                <!-- <div class="search-box">
+                    <a href="#"><span id="lupa-icon"><i class="fa-solid fa-magnifying-glass"></i></span></a>
+                    <form action="/product/all" method="GET" id="searchForm">
+                        <input type="text" name="keyword" placeholder="Buscar" id="search-form-input">
+                        <button class="magnifier" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                </div> -->
+    
+                <span></span>
+            </div>
+
+            <h1 class="titulo-seccion-main accesorios"></h1>
+            <section class="contenedor-productos" id="prodsContainer">
+                <!-- Display de todos los productos pedidos (x categoría, x filtros, etc) -->
+            </section>
+        </main>
+
+        <!-- --------- footer --------- -->
+        <%- include("../partials/footer") %>
+        <!-- --------- footer --------- -->
+
+    </body>
+
+</html>

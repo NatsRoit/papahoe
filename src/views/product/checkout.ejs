@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include("../partials/head", {title: 'PapaHoe || Finaliza Tu Compra'}) %>
+    <body>
+        <%- include("../partials/header") %>
+
+            <main class="productCart">
+                <div class="contenedor">
+                    <div class="cartItems">
+                        <div class="title">
+                            <ul class="breadcrumb">
+                                <li><a href="/product/all">Shop</a></li>
+                                <li><a href="/product/cart">Carrito</a></li>
+                                <li><a href="/product/checkout" style="color: black;">Checkout</a></li>
+                            </ul>
+                            <h1>Checkout</h1>
+                        </div>
+
+
+                        <section class="main-container">
+                            <div class="wrapper-Col-main">
+
+                                <section class="datos-section">
+                                    <h4>Información de Contacto</h4>
+                                    <div class="form-group">
+                                        <div class="form-1col division">
+                                            <div class="sub-col1">
+                                                <p>Contacto</p>
+                                            </div>
+                                            <div class="sub-col2">
+                                                <p>pepito@gmail.com</p>
+                                            </div>
+                                            <div class="sub-col3">
+                                                <a href="login">
+                                                    <p>Cambiar</p>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-1col">
+                                            <div class="sub-col1">
+                                                <p>Dirección</p>
+                                            </div>
+                                            <div class="sub-col2">
+                                                <p>Av. Monroe 860 (C1428) - C.A.B.A.</p>
+                                            </div>
+                                            <div class="sub-col3">
+                                                <a href="/product/cart">
+                                                    <p>Cambiar</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                    <!-- FORMULARIO ENVÍO (Método) -->
+                                <form class="formulario" action="/product/checkout" method="POST">
+                                    <section class="datos-section">
+                                        <h4>Método de Envío</h4>
+                                        <div class="form-group">
+                                            <div class="form-1col division">
+                                                <div class="sub-col1">
+                                                    <input type="radio" name="metodoEnvio" id="metodoEnvio"
+                                                        value="Pickup" checked required>
+                                                    <label for="metodoEnvio">Pickup</label>
+                                                </div>
+                                                <div class="sub-col2">
+                                                    <p></p>
+                                                </div>
+                                                <div class="sub-col3">
+                                                    <p><strong>Gratis!</strong></p>
+                                                </div>
+                                            </div>
+                                            <div class="form-1col division">
+                                                <div class="sub-col1">
+                                                    <input type="radio" name="metodoEnvio" id="metodoEnvio"
+                                                        value="normal" checked required>
+                                                    <label for="metodoEnvio">Normal</label>
+                                                </div>
+                                                <div class="sub-col2">
+                                                    <p>Fecha aproximada de Entrega</p>
+                                                </div>
+                                                <div class="sub-col3">
+                                                    <p><strong>Gratis!</strong></p>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-1col">
+                                                <div class="sub-col1">
+                                                    <input type="radio" name="metodoEnvio" value="express" required>
+                                                    <label for="metodoEnvio">Express</label>
+                                                </div>
+                                                <div class="sub-col2">
+                                                    <p>Llega mañana</p>
+                                                </div>
+                                                <div class="sub-col3">
+                                                    <p>$1000,00</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </form>
+
+                    <!-- FORMULARIO PAGO (Método y Datos) -->
+                                <form class="formulario" action="/product/checkout" method="POST">
+                                    <section class="datos-section">
+                                        <h4>Método de pago</h4>
+                                        <div class="form-group">
+                                            <div class="form-1col division">
+                                                <div class="sub-col1">
+                                                    <label for="metodoPago">Crédito</label>
+                                                    <input type="radio" name="metodoPago" id="metodoPago" value="credito" checked>
+                                                </div>
+                                                <div class="sub-col2">
+                                                    <p></p>
+                                                </div>
+                                                <div class="sub-col3">
+                                                    <i class="fa-brands fa-cc-visa"></i>
+                                                    <i class="fa-brands fa-cc-mastercard"></i>
+                                                    <i class="fa-brands fa-cc-amex"></i>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="radio-dropdown">
+                                                <div class="form-input">
+                                                    <label for="cardNum"></label>
+                                                    <input type="text" name="cardNum" id="cardNum" placeholder="Número de tajeta" required>
+                                                </div>
+                                                <div class="form-input">
+                                                    <label for="cardName"></label>
+                                                    <input type="text" name="cardName" id="cardName" placeholder="Nombre y Apellido" required>
+                                                </div>
+                                                <div class="form-2col" >
+                                                    <div class="form-input">
+                                                        <label for="cardVencimiento"></label>
+                                                        <input type="date" name="cadVencimiento" id="cardVencimiento" placeholder="Fecha de vencimiento (MM/AA)" required>
+                                                    </div>
+                                                    <div class="form-input">
+                                                        <label for="cardPin"></label>
+                                                        <input type="text" name="cardPin" id="cardPin" placeholder="Código de seguridad" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="form-1col division">
+                                                <div class="sub-col1">
+                                                    <input type="radio" name="metodoPago" id="metodoPago" value="credito" checked>
+                                                    <label for="metodoPago">Débito</label>
+                                                </div>
+                                                <div class="sub-col2">
+                                                    <p></p>
+                                                </div>
+                                                <div class="sub-col3">
+                                                    <i class="fa-brands fa-cc-visa"></i>
+                                                    <i class="fa-brands fa-cc-mastercard"></i>
+                                                    <i class="fa-brands fa-cc-amex"></i>
+                                                </div>
+                                            </div>
+                                        
+                                            <div class="radio-dropdown">
+                                                <div class="form-input">
+                                                    <label for="cardNum"></label>
+                                                    <input type="text" name="cardNum" id="cardNum" placeholder="Número de tajeta" required>
+                                                </div>
+                                                <div class="form-input">
+                                                    <label for="cardName"></label>
+                                                    <input type="text" name="cardName" id="cardName" placeholder="Nombre y Apellido" required>
+                                                </div>
+                                                <div class="form-2col" >
+                                                    <div class="form-input">
+                                                        <label for="cardVencimiento"></label>
+                                                        <input type="date" name="cadVencimiento" id="cardVencimiento" placeholder="Fecha de vencimiento (MM/AA)" required>
+                                                    </div>
+                                                    <div class="form-input">
+                                                        <label for="seguridad"></label>
+                                                        <input type="text" name="cardPin" id="cardPin" placeholder="Código de seguridad" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <section class="datos-section">
+                                        <h4>Datos de Facturación</h4>
+                                            <div class="form-2col">
+                                                <div class="form-input">
+                                                        <label for="nombre"></label>
+                                                        <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
+                                                </div>
+                                                <div class="form-input">
+                                                        <label for="apellido"></label>
+                                                        <input type="text" name="apellido" id="apellido" placeholder="Apellido" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-input">
+                                                <label for="dirección"></label> 
+                                                <input type="text" name="dirección" id="dirección" placeholder="Dirección (calle y número)" required>
+                                            </div>
+        
+                                            <div class="form-input">
+                                                    <label for="departamento"></label>
+                                                    <input type="text" name="departamento" id="departamento" placeholder="Piso, departamento (opcional)" required>
+                                            </div>
+                                            <div class="form-3col" >
+                                                <div class="form-input">
+                                                        <label for="cp"></label>
+                                                        <input type="text" name="cap" id="cap" placeholder="Código Postal" required>
+                                                </div>
+                                                <div class="form-input">
+                                                    <label for="city"></label>
+                                                    <input type="text" name="city" id="city" placeholder="Ciudad" required>
+                                                </div>
+                                                <div class="form-input">
+                                                        <label for="provincia"></label>
+                                                        <input type="text" name="provincia" id="provincia" placeholder="Provincia / Estado" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-input">
+                                                <label for="pais"></label>
+                                                <input type="text" name="pais" id="pais" placeholder="País" required>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </form>
+
+
+
+                <!-- ORDER SUMMARY  ORDER SUMMARY ORDER SUMMARY -->
+                                <section class="summary">
+                                    <h1>Order Summary</h1> 
+                                    <section class="data-product">
+
+                                    <!-- producto N1 -->
+                                        <div class="item">
+                                            <div class="image">
+                                                <img src="/img/Surfboards/img_9758-1b.png" alt="producto">
+                                            </div>
+                                            <div class="description">
+                                                <h4>Tabla Pipona</h4>
+                                                <p>Otra descripcion</p>
+                                            </div>
+                                            <div class="price">
+                                                <p>$525,00</p>
+                                            </div>
+                                        </div>
+
+                                    <!-- producto N2 -->
+                                        <div class="item">
+                                            <div class="image">
+                                                <img src="/img/surfboards/short-bord-example.jpg">
+                                            </div>
+                                            <div class="description">
+                                                <h4>Forget Me Not 2 round tail</h4>
+                                                <p> 6' 1" x 18 7/8" x 2 7/16" x 29L - FCS</p>
+                                            </div>
+                                            <div class="price">
+                                                <p>$525,00</p>
+                                            </div>
+                                        </div>
+                                        
+                                    <!-- <div class="mostrar">
+                                            <a href="#">Mostrar detalle del pedido</a>
+                                            <p>$XXXX,XX</p>
+                                        </div>
+                                        <div class="ocultar">
+                                            <a href="#">Ocultar detalle del pedido</a>
+                                        </div>
+                                        <div class="detallePedido"> -->
+
+
+                                        <form class="giftCard" action="#" method="">
+                                            <input type="text" name="giftCard" id="giftCard" placeholder="Gift Card o Código de descuento">
+                                            <button class="boton-descuento" type="submit">Aplicar</button>
+                                        </form>
+                                        <div class="importes">
+                                            <div>
+                                                <span>Subtotal</span>
+                                                <span id="price__subtotal">$XXXX,XX</span>
+                                            </div>
+                                            <div>
+                                                <span>Envío</span>
+                                                <span id="price__envio">$XXXX,XX</span>
+                                            </div>
+                                            <div>
+                                                <span>Total</span>
+                                                <span id="price__total">$XXXX,XX</span>
+                                            </div>
+                                        </div>
+                                    </section>
+
+                                    <form action="/product/checkout" method="GET">
+                                        <button class="submit-button" type="submit">Checkout</button>
+                                    </form>
+                                </section>
+                            </div>
+                        </div>
+                </main>
+            <%- include("../partials/footer") %>
+    </body>
+</html>

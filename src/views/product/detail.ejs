@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include("../partials/head", {title: 'PapaHoe || Detalle Del Producto'}) %>
+    <body>
+        <%- include("../partials/header") %>
+
+
+            <header class="section-header">
+                <img id="carrousel-image-1" src="/images/stock/guille-unsplash.jpg" alt="PapaHoe foto1">
+            </header>
+
+            <%if(locals.isAdmin){%>
+                <div class="adminOpt">
+                    <div id="createProduct">
+                        <a href="/admin/create"><i class="fa-solid fa-plus"></i> </a>
+                    </div>
+                    <div id="editProduct">
+                        <a href="/admin/edit/<%=producto.id%>"><i class="fa-solid fa-pencil"></i></a>
+                    </div>
+                    <div id="deleteProduct">
+                        <form class="delete" action="/admin/delete/<%=producto.id%>?_method=DELETE" method="POST">
+                            <button type="submit" id="borrarProducto"><i class="fa-solid fa-trash"></i></button>
+                        </form>                        
+                    </div>
+                </div>
+                <% }%>
+    
+
+            <main class="productDetail">
+                <div class="shop-filters">
+                    <ul class="breadcrumb">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/product/all">Shop All</a></li>
+                        <li><a href="/product/all?cat=<%= producto.categoria.name%>"><%= producto.categoria.name%></a></li>
+                        <li><a href="/product/all?cat=<%= producto.subcategoria.name%>"><%= producto.subcategoria.name%></a></li>
+                        <li class="breadCrumbLast"><%= producto.name%></li>
+                    </ul>
+                    <span></span>
+                </div>
+
+                <section class="main-container">
+                    <div class="left-wrapper">
+                        <%if(locals.isAdmin && !producto.active){%>
+                            <div class="avisoProdActivo">
+                                <p>Producto no Activo</p>
+                            </div>
+                        <% }%>
+                        <div class="sliderContainer" id="sliderContainer">
+                            <div class="slideshow-container">
+                                <% for( let i = 0; i < imgGallery.length; i++ ) { %>
+                                    <% if (imgGallery[i] != "" && imgGallery[i] != null && imgGallery[i] != undefined) { %>
+                                        <div class="img-slider fade">
+                                            <img class="item" src="/img/<%=imgGallery[i]%>">
+                                        </div>
+                                    <% } %>
+                                <% } %>
+                                <a class="prev" onclick="plusSlides(-1)"><i class="fa-solid fa-chevron-left"></i></a>
+                                <a class="next" onclick="plusSlides(1)"><i class="fa-solid fa-chevron-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-wrapper">
+                        <div class="product-header">
+                            <div>
+                                <h2><%= producto.marca.name%></h2>
+                                <h1><%= producto.name%></h1>
+
+                                <p id="prodPrice" class="hidden"><%= producto.price%></p>
+                            <span class="precioDiscount"> <%= producto.discount != 0? parseFloat(producto.price - ((producto.price * producto.discount)/100)).toLocaleString(["es-AR", "es"], {style: "currency", currency: "ARS"}): "" %></span><p <%= producto.discount != 0? "style= text-decoration:line-through" : "" %> id="prodPricePrint"><%= producto.price %>
+                            </div>
+                            
+                            <% if(producto.categoria.id != 1){%>
+                                <div class="hidden">
+                                <%}else {%>
+                                <div>
+                                <%}%>                                
+                                <button type="button" id="modalButton" class="detailButton">Size Chart</button>
+                                <a href="/volumeCalculator" class="detailButton"><i class="fa-solid fa-calculator"></i></a>
+                                
+                                <!-- The Modal -->
+                                <div id="modalMedidas" class="modal">
+                                    <!-- Modal content -->
+                                    <div class="modal-content">
+                                        <span id="closeModal">
+                                            <button class="drawer__close"></button>
+                                        </span>
+                                        <div class="modal-body">
+                                            <div class="tab-block">
+                                                <h1 class="titulo-seccion-main accesorios">Medidas Standard</h1>
+                                                <div class="tab-content" id="tab-stock-dims">
+                                                    <div class="tab-pane">
+                                                        <table>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td><strong>Largo</strong></td>
+                                                                    <td><strong>Ancho</strong></td>
+                                                                    <td><strong>Espesor</strong></td>
+                                                                    <td><b>Volumen</b></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>5’8</td>
+                                                                    <td>18 1/4</td>
+                                                                    <td>2 3/16</td>
+                                                                    <td>24.3L</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>5’9</td>
+                                                                    <td>18 3/8</td>
+                                                                    <td>2 1/4</td>
+                                                                    <td>25.5L</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>5’10</td>
+                                                                    <td>18 5/8</td>
+                                                                    <td>2 5/16</td>
+                                                                    <td>26.9L</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>5’11</td>
+                                                                    <td>18 7/8</td>
+                                                                    <td>2 3/8</td>
+                                                                    <td>28.4L</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>6’0</td>
+                                                                    <td>19 1/8</td>
+                                                                    <td>2 7/16</td>
+                                                                    <td>29.9L</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>6’1</td>
+                                                                    <td>19 1/4</td>
+                                                                    <td>2 1/2</td>
+                                                                    <td>31.2L</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>6’2</td>
+                                                                    <td>19 1/2</td>
+                                                                    <td>2 9/16</td>
+                                                                    <td>32.8L</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>6’3</td>
+                                                                    <td>19 7/8</td>
+                                                                    <td>2 5/8</td>
+                                                                    <td>34.7L</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>6’4</td>
+                                                                    <td>20 1/8</td>
+                                                                    <td>2 3/4</td>
+                                                                    <td>37.3L</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>6’6</td>
+                                                                    <td>20 1/2</td>
+                                                                    <td>2 7/8</td>
+                                                                    <td>40.6L</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="product-detail-form" action="/product/detail/<%=producto.id%>" method="GET">
+                            <div class="opciones">
+                                <div>
+                                    <!-- <h5>Dimensiones</h5> -->
+                                    <select name="size" id="opcDim" class="opciones-desplegable">
+                                        <% if(producto.categoria.id != 1){%>
+                                            <option disabled selected>Talle</option>
+                                        <%}else {%>
+                                        <option disabled selected>Medida</option>
+                                        <%}%>
+                                        <% if (producto.dimensiones.length > 0){ %>
+                                        <% for (let i=0; i<producto.dimensiones.length; i++) { %>
+                                            <option value="<%= producto.dimensiones[i].id%>">
+                                                <strong><%=producto.dimensiones[i].dimension %></strong>
+                                            </option>
+                                        <% } %>
+                                        <%} else {%>
+                                            <option value="">Talle único</option>
+                                        <% } %>
+                                    </select>
+                                </div>
+
+                                
+                                <% if(producto.categoria.id != 1){%>
+                                <div class="hidden">
+                                <%}else {%>
+                                <div>
+                                <%}%>
+                                    <!-- <h5>Fin System</h5> -->
+                                    <select name="fins" id="opcFin" class="opciones-desplegable">
+                                        <option selected>Fin Setup</option>
+                                    <% if (producto.fin){ %>
+                                        <option value="<%= producto.fin.id%>">
+                                            <%= producto.fin.name%>
+                                        </option>
+                                    <%} else {%>
+                                        <% for (let i =0; i<fins.length; i++) { %>
+                                            <option value="<%= fins[i].id%>">
+                                                <%= fins[i].name%>
+                                            </option>
+                                    <% }} %>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <!-- <h5>Color</h5> -->
+                                    <select name="colors" id="opcCol" class="opciones-desplegable">
+                                        <option disabled selected>Color</option>
+                                        <% if (producto.colores.length > 0){ %>
+                                            <% for (let i =0; i<producto.colores.length; i++) { %>
+                                            <option value="<%= producto.colores[i].id%>">
+                                                <%= producto.colores[i].name%>
+                                            </option>
+                                            <% } %>
+                                        <%} else {%>
+                                            <option value="">Color único</option>
+                                        <% } %>
+                                    </select>
+                                </div>
+
+                                <!-- <h5> Acabado </h5> -->
+                                <% if(producto.categoria.id != 1){%>
+                                    <div class="hidden">
+                                <%}else {%>
+                                    <div>
+                                <%}%>
+                                    <select name="" id="opcAcab" class="opciones-desplegable">
+                                        <option value="">Acabado</option>
+                                        <option value="">opaco</option>
+                                        <option value="">glossy </option>
+                                    </select>
+                                </div>
+
+                                <!-- <h5> Cantidad </h5> -->
+                                <div>
+                                    <div class="quantity" id="cantDetail">
+                                        <button id="menos" class="plus-btn" type="button" name="button">
+                                            <i class="fa-solid fa-minus"></i>
+                                        </button>
+                                        <input id="input" type="number" value="0" min="0">
+                                        <button id="mas" class="minus-btn" type="button" name="button">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div> 
+                            </div>
+
+                            <div>
+                                <input type="submit" class="boton" value="Agregar al Carrito">
+                            </div>
+                        </form>
+                        <!-- /form -->
+
+                        <!-- ---- ORDER SUMMARY ---- -->
+                        <% if(producto.categoria.id != 1){%>
+                            <div class="hidden">
+                        <%}else {%>
+                            <div class="product-summary">
+                        <% } %>
+                            <div>
+                                <p style="margin-top:0px; font-size:16px">ORDER SUMMARY</p>
+                                <hr>
+                                <ul>
+                                    <li>Medida: <span id="dimensiones"></span></li>
+                                    <li>Fin System: <span id="fins"></span></li>
+                                    <li>Color: <span id="color"></span></li>
+                                    <li>Acabado: <span id="acabado"></span></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <hr>
+                                <p>CANT. <span id="totalCantidad"></span></p>
+                                <hr>
+                                <p>ITEM TOT. <span id="totalPrecio"></span></p>
+                            </div>
+                        </div>
+
+                        <div class="descripcion">
+                            <div class="especificaciones">
+                                <h2>Descripción</h2>
+                                <p><%= producto.description%></p>
+                                <br>
+                            </div>
+                            <br>
+                            <div class="features">
+                                <h2>Características</h2>
+                                <p><%= producto.features%></p>
+                            </div>
+
+                            <br>
+
+                        </div>
+                    </div>
+                </section>
+
+                <div class="related-products">
+                <h1>También te puede interesar</h1>
+                <section class="contenedor-productos">
+                        <% for (let i = 0; i < relatedProds.length; i++) { %>
+                        <div class="producto-shop related">
+                            <a href="/product/detail/<%= relatedProds[i].id%>">
+                                <div class="imagen-producto">
+                                    <div class="complementos-img">
+                                        <img src="/img/<%= relatedProds[i].image1 %>"
+                                        alt="<%= relatedProds[i].name%>" width="100%">
+                                    </div>
+                                </div>
+                            </a>
+                            <!-- <div class="product-info">
+                                <h5><%= relatedProds[i].name %></h5>
+                            </div> -->
+                        </div>
+                        <% } %>
+                </section>
+            </div>
+        </main>
+        <!-- footer -->
+        <%- include("../partials/footer") %>
+        <!-- footer -->
+        <script src="/js/productDetail.js"></script>
+        <script src="/js/productDetailSlider.js"></script>
+    </body>
+</html>
