@@ -2,9 +2,9 @@
   "name": "dh-papahoe",
   "version": "1.0.0",
   "description": "TEMÁTICA DEL SITIO Venta de tablas de surf y otros artículos para surfistas",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon src/index.js",
+    "start": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Grupo 3",

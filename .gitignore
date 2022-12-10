@@ -6,3 +6,4 @@ node_modules/
 
 # Claves
 .env
+.vercel
