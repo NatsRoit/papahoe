@@ -4,12 +4,12 @@ const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const acceso = require('./src/middlewares/acceso'); // middleware login
+const acceso = require('./middlewares/acceso'); // middleware login
 
 // TEMPLATE ENGINE SETUP
 app.set('view engine','ejs');
-app.set("views", path.join(__dirname, "src/views"));   // Todas las rutas a vistas se encuentran en este dir
-app.use(express.static(path.resolve(__dirname, 'public')));  // Todos los recursos estáticos se encuentran en este dir
+app.set("views", path.join(__dirname, "views"));   // Todas las rutas a vistas se encuentran en este dir
+app.use(express.static(path.resolve(__dirname, '../public')));  // Todos los recursos estáticos se encuentran en este dir
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
@@ -23,12 +23,12 @@ app.use(acceso);  // middleware global (siempre antes de los routers)
 
 
 // REQUIERO LOS ROUTERS
-const mainRoutes = require('./src/routes/main');
-const productRoutes = require('./src/routes/product');
-const userRoutes = require('./src/routes/user');
-const adminRoutes = require('./src/routes/admin');
-const apiUsersRoutes = require('./src/routes/apiUsers.js');
-const apiProductsRoutes = require('./src/routes/apiProducts');
+const mainRoutes = require('./routes/main');
+const productRoutes = require('./routes/product');
+const userRoutes = require('./routes/user');
+const adminRoutes = require('./routes/admin');
+const apiUsersRoutes = require('./routes/apiUsers.js');
+const apiProductsRoutes = require('./routes/apiProducts');
 
 // USO LAS RUTAS
 app.use('/', mainRoutes);
