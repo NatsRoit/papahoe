@@ -6,7 +6,7 @@ const Op = db.Sequelize.Op;
 const { validationResult } = require("express-validator");
 
 
-let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../database/productos.json')));
+// let productos = JSON.parse(fs.readFileSync(path.resolve(__dirname,'../database/productos.json')));
 
 let adminController = {
     test: function(req,res){

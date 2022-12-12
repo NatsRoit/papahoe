@@ -2,13 +2,13 @@
 const fs = require("fs");
 const path = require("path");
 
-let archivoUsers =  fs.readFileSync(path.resolve(__dirname,'../database/usuarios.json'), {encoding: 'utf-8'});
-let users;
-  if (archivoUsers == "") {
-    users = [];
-  } else {
-    users = JSON.parse(archivoUsers);
-  };
+// let archivoUsers =  fs.readFileSync(path.resolve(__dirname,'../database/usuarios.json'), {encoding: 'utf-8'});
+// let users;
+//   if (archivoUsers == "") {
+//     users = [];
+//   } else {
+//     users = JSON.parse(archivoUsers);
+//   };
 
 let adminLog = (function(req, res, next) {
     res.locals.usuario = false;
