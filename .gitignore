@@ -6,4 +6,7 @@ node_modules/
 
 # Claves
 .env
+.env.example
+
+# Vercel Config
 .vercel
