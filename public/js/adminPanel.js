@@ -7,7 +7,7 @@ if (document.readyState == "loading") {
 console.log("acá estoy"); // Prueba para ver si conecta
 
 async function fetchProdShop() {
-  const res = await fetch("http://localhost:3001/api/products/index", {
+  const res = await fetch("/api/products/index", {
     method: "GET",
     headers: {
       Accept: "application/json",
