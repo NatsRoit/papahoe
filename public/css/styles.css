@@ -105,7 +105,7 @@ main h2 {
 
 main p {
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
   color: #516169;
 }
@@ -1038,7 +1038,7 @@ header.slider {
 .producto-destacado .descripcion-producto p {
   /* display: none; */
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: #516169;
 }
@@ -1049,12 +1049,12 @@ header.slider {
   flex-direction: column;
   overflow: hidden;
   flex-grow: 1;
-  width: 20vw;
+  width: 100%;
 }
 
 .producto-destacado .destacado-tabla p {
   display: block;
-  width: 100vw;
+  width: 100%;
   line-height: 20px;
   text-align: left
 }
@@ -1181,6 +1181,7 @@ header.slider {
   flex-basis: 50%;
   position: relative;
   z-index: 10;
+  display: none;
 }
 .imagen-model-finder img {
   position: absolute;
@@ -1430,7 +1431,7 @@ form.delete {
   margin-left: 5px;
   /* padding-top: 40px; */
   width: 100%;
-  max-width: 1400px;
+  /* max-width: 1400px; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -3148,8 +3149,8 @@ input::placeholder {
 
 .navegacion-footer,
 .info-footer {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 14px;
+  line-height: 18px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -3569,7 +3570,7 @@ input.visually-hidden:is(:focus, :focus-within) + label {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding: 0px;
   }
   
@@ -3956,7 +3957,7 @@ p.prodImgCaption {
 
   main p {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   #logo {

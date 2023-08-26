@@ -22,7 +22,6 @@ async function fetchProdShop() {
 async function ready() {
   const PRODUCTS = await fetchProdShop();
   listProducts(PRODUCTS)
-  console.log(PRODUCTS);
   
   let prodStatus = document.querySelectorAll("#admactive");
   for (let i = 0; i < prodStatus.length; i++) {
@@ -61,31 +60,6 @@ async function ready() {
 
 // ------------------------------------------------------
 
-
-
-
-
-
-//   // let res = await fetchResponse.json()
-
-//   if (res.meta.status == 201) {
-//     alert("Hello! I am an alert box!!")
-// }
-// else {
-//     alert("Hello! LPMMMMM")
-// }
-
-// // })
-
-
-// function toggleActive(PRODUCTS) {
-//   PRODUCTS.find(el => el.id == this.parentElement.querySelector("#prodId").innerHTML)
-//   for (let i = 0; i < array.length; i++) {
-//       const prod = array[i];
-//       console.log(this.parentElement);
-//       console.log(this.parentElement.querySelector("#prodId").innerHTML);
-//   }
-// }
 
 
 function listProducts(PRODUCTS) {

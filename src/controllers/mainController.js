@@ -38,6 +38,7 @@ const main = {
     },
     contact: function(req,res){
         const errors = validationResult(req);
+        console.log(errors.array());
 
         if(errors.isEmpty()){
             // fs.appendFileSync(path.join(__dirname, "../../mensajes-contacto/" + req.body.email + "-" + Date.now() + ".txt"), / Dónde y con qué nombre
@@ -50,7 +51,7 @@ const main = {
             lastMsg != undefined? msgArray.push(lastMsg) : "";
                 
             let msgNew = {  // creo el template para un nuevo mensaje
-                id: msgFile == ""? 1 : lastMsg.id +1,
+                id: lastMsg == undefined? 1 : lastMsg.id +1,
                 email: req.body.email,
                 nombre: req.body.nombre,
                 mensaje: req.body.mensaje
